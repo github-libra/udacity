@@ -1,4 +1,24 @@
+.list-wrapper {
+    display: block;
+    float: left;
+    width: 200px;
+}
+.list-wrapper ul li {
+    background-color: #eee;
+    display: block;
+    border: 1px solid;
+    margin: 2px;
+    height: 25px;
+    cursor: pointer;
+}
+.list-wrapper ul li:hover {
+    transform: scale(1.2);
+    transition: .2s;
+}
+
 .wrapper {
+    display: block;
+    float: right;
     width: 500px;
 }
 .wrapper img {

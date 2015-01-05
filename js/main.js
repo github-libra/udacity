@@ -8,9 +8,34 @@ var cats = [{
     numOfClick: 0
 }]
 
+function initList(cats) {
+    var list_wrapper = document.createElement('div');
+    list_wrapper.className = 'list-wrapper';
+    var ul = document.createElement('ul');
+    list_wrapper.insertBefore(ul, null);
+    document.body.insertBefore(list_wrapper, null)
+
+    var li;
+    for (var i = 0; i < cats.length; ++i) {
+        li = document.createElement('li');
+        li.innerText = cats[i].name;
+        ul.insertBefore(li, null)
+
+        li.addEventListener('click', (function(index) {
+            return function() {
+                var arr = []
+                arr.push(cats[index])
+                console.log(index);
+                createCat(arr)
+            }
+        })(i), false)
+    }
+
+}
 
 function createCat(cats) {
     var wrapper = document.getElementsByClassName('wrapper')[0];
+    wrapper.innerHTML = "";
     var img;
     var caption;
     var numOfClick;
@@ -24,7 +49,7 @@ function createCat(cats) {
         wrapper.insertBefore(img, null)
         wrapper.insertBefore(numOfClick, null)
 
-        img.addEventListener('click', function(e){
+        img.addEventListener('click', function(e) {
             console.log(e.target);
             var span = e.target.nextSibling.innerText;
             span = span || 0;
@@ -34,4 +59,6 @@ function createCat(cats) {
     }
     return wrapper;
 }
-createCat(cats)
+
+
+initList(cats)
