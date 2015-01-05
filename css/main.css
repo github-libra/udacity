@@ -1,0 +1,10 @@
+.wrapper {
+    width: 500px;
+}
+.wrapper img {
+    width: 200px;
+    padding-right: 50px;
+}
+.wrapper span {
+    display: block;
+}
