@@ -10,27 +10,18 @@
 
 
 
-    <ul id="cat-list"></ul>
-
-    <div class="cat">
-        <h2 id="cat-name"></h2>
-        <div id="cat-count"></div>
-        <img id="cat-img" src="">
+    <div class="cat" data-bind="with: currentCat">
+        <h2 data-bind="text: name"></h2>
+        <div data-bind="text: clickCount"></div>
+        <div data-bind="text: title"></div>
+        <img src="" data-bind="click: $parent.incrementCounter, attr: { src: src}">
     </div>
+    <ul  data-bind="foreach: currentCat().nicknames">
+        <li data-bind="text: $data"></li>
+    </ul>
 
-        <button id="show-admin">admin</button>
-    <div id="admin">
-        <form>
-            <label for="name">name</label>
-            <input id="name" type="text">
-            <label for="click">click</label>
-            <input id="click" type="text">
-            <label for="src">src</label>
-            <input id="src" type="text">
-            <input id="save" type="submit" value="confirm">
-            <input id="cancel" type="button" value="cancel">
-        </form>
-    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
 
 
     <script src="js/main.js"></script>
